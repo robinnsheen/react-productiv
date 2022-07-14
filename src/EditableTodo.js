@@ -35,6 +35,7 @@ function EditableTodo({todo, update, remove}) {
     update(formData);
     toggleEdit();
    }
+   console.log("editabletodo:", todo)
 
   return (
       <div className="EditableTodo">
@@ -53,7 +54,7 @@ function EditableTodo({todo, update, remove}) {
                                   Del
                                 </button>
                               </div>
-                              <Todo />
+                              <Todo todo={todo}/>
                             </div>
 
                   }</div>

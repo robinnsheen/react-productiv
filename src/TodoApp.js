@@ -33,7 +33,10 @@ function TodoApp({initialTodos}) {
     setTodos(todos.filter(todo => todo.id !== id));
   }
 
-  return (
+
+
+      if (todos.length !== 0) {
+      return (
       <main className="TodoApp">
         <div className="row">
 
@@ -57,7 +60,11 @@ function TodoApp({initialTodos}) {
 
         </div>
       </main>
-  );
+      )
+    } else {
+      return null;
+    }
+  ;
 }
 
 export default TodoApp;
