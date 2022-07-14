@@ -3,6 +3,7 @@ import { v4 as uuid } from "uuid";
 
 import TopTodo from "./TopTodo";
 import EditableTodoList from "./EditableTodoList";
+import TodoForm from "./TodoForm";
 
 /** App for managing a todo list.
  *
@@ -15,11 +16,12 @@ import EditableTodoList from "./EditableTodoList";
  * App -> TodoApp -> { TodoForm, EditableTodoList }
  */
 
-function TodoApp({initialTodos}) {
+function TodoApp({ initialTodos }) {
   const [todos, setTodos] = useState(initialTodos);
   /** add a new todo to list */
   function create(newTodo) {
-    setTodos([...todos, newTodo]);
+
+    setTodos([...todos, { ...newTodo, id: uuid() }]);
   }
 
   /** update a todo with updatedTodo */
@@ -35,35 +37,38 @@ function TodoApp({initialTodos}) {
 
 
 
-      if (todos.length !== 0) {
-      return (
+  if (todos.length > 0) {
+    return (
       <main className="TodoApp">
         <div className="row">
 
           <div className="col-md-6">
-            <EditableTodoList todos={todos} update={update} remove={remove} /> OR
-            <span className="text-muted">You have no todos.</span>
+            <EditableTodoList todos={todos} update={update} remove={remove} />
+
           </div>
 
           <div className="col-md-6">
-            (if no top todo, omit this whole section)
-            <section className="mb-4">
-              <h3>Top Todo</h3>
-              <TopTodo />
-            </section>
+            {todos.length > 0 ?
+              <section className="mb-4">
+                <h3>Top Todo</h3>
+                <TopTodo todos={todos} />
+              </section> : null}
+
 
             <section>
               <h3 className="mb-3">Add Nü</h3>
-              FIXME
+              <TodoForm handleSave={create} initialFormData={{ title: "", description: "", priority: "Ultra-Über" }} />
             </section>
           </div>
 
         </div>
       </main>
-      )
-    } else {
-      return null;
-    }
+    );
+  } else {
+    return (
+      <span className="text-muted">You have no todos.</span>
+    );
+  }
   ;
 }
 

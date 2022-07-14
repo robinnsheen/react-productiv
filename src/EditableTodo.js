@@ -10,10 +10,11 @@ import TodoForm from "./TodoForm";
  * - remove(): fn to call to remove a todo
  *
  * EditableTodoList -> EditableTodo -> { Todo, TodoForm }
+ * state: isEdit = boolean true or false
  */
 
 function EditableTodo({todo, update, remove}) {
-  const [isEdit, setIsEdit] = useState(false)
+  const [isEdit, setIsEdit] = useState(false);
 
   /** Toggle if this is being edited */
   function toggleEdit() {
