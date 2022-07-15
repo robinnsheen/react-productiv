@@ -37,38 +37,40 @@ function TodoApp({ initialTodos }) {
   }
 
 
-//TODO: keep addform
+
   if (todos.length > 0) {
     return (
       <main className="TodoApp">
         <div className="row">
-
           <div className="col-md-6">
             <EditableTodoList todos={todos} update={update} remove={remove} />
-
           </div>
-{/** TODO: format ternary have question mark and colon start new line */}
           <div className="col-md-6">
-            {todos.length > 0 ?
-              <section className="mb-4">
+            {todos.length > 0
+              ? <section className="mb-4">
                 <h3>Top Todo</h3>
                 <TopTodo todos={todos} />
-              </section> : null}
-
-
+              </section>
+              : null}
             <section>
               <h3 className="mb-3">Add Nü</h3>
-              {/* TODO: line length. have form have the initial/default data */}
-              <TodoForm handleSave={create} initialFormData={{ title: "", description: "", priority: 1 }} />
+              <TodoForm
+                handleSave={create}
+                initialFormData={{ title: "", description: "", priority: 1 }} />
             </section>
           </div>
-
         </div>
       </main>
     );
   } else {
     return (
-      <span className="text-muted">You have no todos.</span>
+      <section>
+        <span className="text-muted">You have no todos.</span>
+        <h3 className="mb-3">Add Nü</h3>
+        <TodoForm
+          handleSave={create}
+          initialFormData={{ title: "", description: "", priority: 1 }} />
+      </section>
     );
   }
   ;
