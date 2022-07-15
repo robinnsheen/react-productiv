@@ -1,0 +1,134 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditableTodosList matches snapshot 1`] = `
+<div>
+  <div>
+    <div
+      class="EditableTodo"
+    >
+      <div
+        class="mb-3"
+      >
+        <div
+          class="float-end text-sm-end"
+        >
+          <button
+            class="EditableTodo-toggle btn-link btn btn-sm"
+          >
+            Edit
+          </button>
+          <button
+            class="EditableTodo-delBtn btn-link btn btn-sm text-danger"
+          >
+            Del
+          </button>
+        </div>
+        <div
+          class="Todo"
+        >
+          <div>
+            <b>
+              testTitle1
+            </b>
+             
+            <small>
+              (priority: 
+              1
+              )
+            </small>
+          </div>
+          <div>
+            <small>
+              test description
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="EditableTodo"
+    >
+      <div
+        class="mb-3"
+      >
+        <div
+          class="float-end text-sm-end"
+        >
+          <button
+            class="EditableTodo-toggle btn-link btn btn-sm"
+          >
+            Edit
+          </button>
+          <button
+            class="EditableTodo-delBtn btn-link btn btn-sm text-danger"
+          >
+            Del
+          </button>
+        </div>
+        <div
+          class="Todo"
+        >
+          <div>
+            <b>
+              testTitle2
+            </b>
+             
+            <small>
+              (priority: 
+              2
+              )
+            </small>
+          </div>
+          <div>
+            <small>
+              test description
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="EditableTodo"
+    >
+      <div
+        class="mb-3"
+      >
+        <div
+          class="float-end text-sm-end"
+        >
+          <button
+            class="EditableTodo-toggle btn-link btn btn-sm"
+          >
+            Edit
+          </button>
+          <button
+            class="EditableTodo-delBtn btn-link btn btn-sm text-danger"
+          >
+            Del
+          </button>
+        </div>
+        <div
+          class="Todo"
+        >
+          <div>
+            <b>
+              testTitle3
+            </b>
+             
+            <small>
+              (priority: 
+              3
+              )
+            </small>
+          </div>
+          <div>
+            <small>
+              test description
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
