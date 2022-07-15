@@ -21,16 +21,15 @@ function TodoForm({ initialFormData=defaultInitial, handleSave }) {
     const fieldName = evt.target.name;
     const value = evt.target.value;
 
-    setFormData(currData => {
-      currData[fieldName] = value;
-      return { ...currData };
-    });
+    setFormData(currData => ({ ...currData, [fieldName]:value }));
   }
   /** Call parent function and clear form. */
   function handleSubmit(evt) {
     evt.preventDefault();
     handleSave(formData);
     setFormData(currData => initialFormData);
+    console.log(initialFormData);
+    console.log(formData);
   }
 
   return (

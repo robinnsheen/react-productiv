@@ -22,18 +22,18 @@ function TodoApp({ initialTodos }) {
   //TODO: change all methods to callbackpattern
   function create(newTodo) {
 
-    setTodos([...todos, { ...newTodo, id: uuid() }]);
+    setTodos(currtodos => [...currtodos, { ...newTodo, id: uuid() }]);
   }
 
   /** update a todo with updatedTodo */
   function update(updatedTodo) {
     //do we spread the todo or just set the todo to the updatedTodo
-    setTodos(todos.map(todo => todo.id === updatedTodo.id ? updatedTodo : todo));
+    setTodos(currtodos => currtodos.map(todo => todo.id === updatedTodo.id ? updatedTodo : todo));
   }
 
   /** delete a todo by id */
   function remove(id) {
-    setTodos(todos.filter(todo => todo.id !== id));
+    setTodos(currtodos => currtodos.filter(todo => todo.id !== id));
   }
 
 
@@ -67,8 +67,7 @@ function TodoApp({ initialTodos }) {
         <span className="text-muted">You have no todos.</span>
         <h3 className="mb-3">Add Nü</h3>
         <TodoForm
-          handleSave={create}
-          initialFormData={{ title: "", description: "", priority: 1 }} />
+          handleSave={create} />
       </section>
     );
   }
