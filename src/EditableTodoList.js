@@ -12,7 +12,7 @@ import EditableTodo from "./EditableTodo";
  */
 
 function EditableTodoList({todos, update, remove}) {
-
+//TODO: dont need the extra div wrapping the todos.map
   return (
       <div>
         <div>{todos.map(todo => <EditableTodo key={todo.id} todo={todo} update={update} remove={remove}/>)}</div>

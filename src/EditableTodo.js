@@ -3,7 +3,7 @@ import Todo from "./Todo";
 import TodoForm from "./TodoForm";
 
 /** Show editable todo item.
- *
+ * TODO: fix docstring formatting, isEdit name change to isEditing
  * Props
  * - todo
  * - update(): fn to call to update a todo
@@ -18,7 +18,8 @@ function EditableTodo({todo, update, remove}) {
 
   /** Toggle if this is being edited */
   function toggleEdit() {
-
+// TODO: use callback to see curr state and flip
+    setIsEdit(curr => !curr);
      if(isEdit===true){
       setIsEdit(false);
     }else{

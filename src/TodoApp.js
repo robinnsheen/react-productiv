@@ -19,6 +19,7 @@ import TodoForm from "./TodoForm";
 function TodoApp({ initialTodos }) {
   const [todos, setTodos] = useState(initialTodos);
   /** add a new todo to list */
+  //TODO: change all methods to callbackpattern
   function create(newTodo) {
 
     setTodos([...todos, { ...newTodo, id: uuid() }]);
@@ -36,7 +37,7 @@ function TodoApp({ initialTodos }) {
   }
 
 
-
+//TODO: keep addform
   if (todos.length > 0) {
     return (
       <main className="TodoApp">
@@ -46,7 +47,7 @@ function TodoApp({ initialTodos }) {
             <EditableTodoList todos={todos} update={update} remove={remove} />
 
           </div>
-
+{/** TODO: format ternary have question mark and colon start new line */}
           <div className="col-md-6">
             {todos.length > 0 ?
               <section className="mb-4">
@@ -57,6 +58,7 @@ function TodoApp({ initialTodos }) {
 
             <section>
               <h3 className="mb-3">Add Nü</h3>
+              {/* TODO: line length. have form have the initial/default data */}
               <TodoForm handleSave={create} initialFormData={{ title: "", description: "", priority: 1 }} />
             </section>
           </div>
