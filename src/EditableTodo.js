@@ -11,7 +11,6 @@ import TodoForm from "./TodoForm";
  *  * state: isEditing = boolean true or false
  *
  * EditableTodoList -> EditableTodo -> { Todo, TodoForm }
-
  */
 
 function EditableTodo({ todo, update, remove }) {
@@ -33,7 +32,7 @@ function EditableTodo({ todo, update, remove }) {
     update(formData);
     toggleEdit();
   }
-  console.log("editabletodo:", todo);
+  // console.log("editabletodo:", todo);
 
   return (
     <div className="EditableTodo">
