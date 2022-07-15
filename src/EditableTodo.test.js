@@ -11,45 +11,54 @@ const testTodo = {
 
 describe("productiv app", function () {
   it("renders without crashing", function () {
-    render(<EditableTodo todo={testTodo}/>);
+    render(<EditableTodo todo={testTodo} />);
   });
 
   it("matches snapshot", function () {
     const { container } = render(<EditableTodo todo={testTodo} />);
-    expect(container).toMatchSnapshot()
-  })
+    expect(container).toMatchSnapshot();
+  });
 
   it("renders with correct info", function () {
-    const {container} = render(<EditableTodo todo={testTodo} />);
+    const { container } = render(<EditableTodo todo={testTodo} />);
     expect(container.querySelector(".Todo")).toContainHTML(
-      `<div class="Todo">`+
-        `<div>`+
-          `<b>testTitle</b>`+
-         ` <small>(priority: 2)</small>`+
-        `</div><div>`+
-          `<small>test description</small>`+
-        `</div>`+
+      `<div class="Todo">` +
+      `<div>` +
+      `<b>testTitle</b>` +
+      ` <small>(priority: 2)</small>` +
+      `</div><div>` +
+      `<small>test description</small>` +
+      `</div>` +
       `</div>`
     );
   });
 
-  it("renders with correct buttons", function () {
-    const {container} = render(<EditableTodo todo={testTodo} />);
-    expect(container.querySelector(".Todo")).toContainHTML()
-  });
+
 
   it("clicking edit button calls update function", function () {
     const mockUpdate = jest.fn();
     const mockRemove = jest.fn();
 
-    let {container, debug} = render(<EditableTodo todo={testTodo} update={mockUpdate} remove={mockRemove} />);
-
+    let { container, debug } = render(<EditableTodo
+      todo={testTodo} update={mockUpdate} remove={mockRemove} />);
     let editButton = container.querySelector(".EditableTodo-toggle");
-
     debug(editButton);
+
     fireEvent.click(editButton);
-    //test that we rendered form. consolelog container before and after click
-    expect(mockUpdate).toHaveBeenCalledTimes(1);
+    expect(container.querySelector(".EditableTodo")).toBeInTheDocument(
+      `<div class="EditableTodo">` +
+      `<form class="NewTodoForm">`
+    );
   });
+
+  it("clicking remove should remove todo", function () {
+    const mockUpdate = jest.fn();
+    const mockRemove = jest.fn();
+    let { container } = render(<EditableTodo
+      todo={testTodo} update={mockUpdate} remove={mockRemove} />);
+    let removeButton = container.querySelector(".EditableTodo-delBtn");
+    fireEvent.click(removeButton);
+    expect(mockRemove).toHaveBeenCalledTimes(1)
+  })
 
 });

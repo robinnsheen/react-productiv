@@ -9,9 +9,9 @@ exports[`productiv app matches snapshot 1`] = `
       <b>
         testTitle
       </b>
-       
+
       <small>
-        (priority: 
+        (priority:
         2
         )
       </small>
